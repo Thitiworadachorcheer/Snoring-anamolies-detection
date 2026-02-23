@@ -1,0 +1,18 @@
+1. Prototype ปัจจุบัน: เทคนิคและโมเดล
+เน้นความรวดเร็วและแม่นยำทางสถิติ (Statistical Approach):
+Technique: ใช้ Digital Signal Processing (DSP) ร่วมกับ Heuristic Logic ผ่านไลบรารี librosa เพื่อสกัดคุณลักษณะทางชีวภาพ (Voice Biomarkers)
+Model: ระบบ Explainable Statistical AI ที่ใช้กระบวนการ Feature Extraction และ Rule-based Scoring คำนวณจาก Spectral Centroid (การอักเสบทางเดินหายใจ), RMS Energy (การตรวจจับความผิดปกติ/Anomalies), และ Onset Strength (ความเครียดหลอดเลือด)
+Data Audit: ตรวจสอบคุณภาพสัญญาณด้วยระบบ Signal-to-Noise Ratio (SNR) เพื่อยืนยันความน่าเชื่อถือของไฟล์ก่อนวิเคราะห์
+Integrated Dashboard: เชื่อมต่อผลการวิเคราะห์เข้ากับ Streamlit Web Dashboard แสดงผล Risk Score และ Spectrogram 
+
+2. แผนการพัฒนาใน 1 เดือน (Final Prototype)
+ยกระดับสู่เครื่องมือคัดกรองทางการแพทย์เบื้องต้น :
+Long-duration Support: พัฒนาส่วน Chunk-based Processing รองรับไฟล์เสียงการนอนหลับยาว 8 ชั่วโมง โดยประมวลผลผ่านเทคนิค Feature Compression.
+Robust Noise Rejection: เพิ่มระบบ Noise Gate และ Frequency Filtering เพื่อกรองเสียงขยับผ้าห่มหรือเสียงพลิกตัว โดยใช้เกณฑ์ Duration-based Validation.
+Formal Clinical Reporting: พัฒนา Summary Engine ออกรายงาน PDF ที่ระบุความเสี่ยง CAD ในประชากรเอเชีย (แม้ BMI ปกติ) เพื่อให้บุคลากรทางการแพทย์ใช้ประกอบการวินิจฉัยได้ทันที
+
+3. แผนผังการไหลของข้อมูล (Data Flow for Scale)
+เพื่อให้ระบบพร้อมสำหรับการใช้งานจริง (Launch) ในร้านขายยาหรือสถานพยาบาล:
+Edge Computing: ประมวลผล Noise Rejection เบื้องต้นที่อุปกรณ์ผู้ใช้ เพื่อรักษาความเป็นส่วนตัวและลดขนาดไฟล์ข้อมูล
+Cloud Analytics: จัดเก็บและประมวลผลข้อมูลเชิงลึกตามมาตรฐานความปลอดภัยข้อมูลสุขภาพ (PDPA).
+Clinical Integration: นำผลลัพธ์ที่วิเคราะห์ได้เชื่อมโยงกับรายงานทางการแพทย์เพื่อรองรับการตัดสินใจทางคลินิกเบื้องต้น
