@@ -10,7 +10,7 @@ def get_health_scores(file):
     rms = librosa.feature.rms(y=y)[0]
     #ค่าความแปรปรวน (Onset Strength)
     os = np.std(librosa.onset.onset_strength(y=y, sr=sr))
-    
+    #OngsaTestGithub
     # คำนวณเป็น % Logic
     feno = min((sc / 5000) * 100, 100)
     odi = min((np.sum(rms < 0.01) / len(rms)) * 500, 100)
